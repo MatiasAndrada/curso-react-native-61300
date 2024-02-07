@@ -1,17 +1,29 @@
+import { StyleSheet, Text, View, AppRegistry } from "react-native";
+import React, { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-/* import Users from "./components/Users"; */
+import ProductList from "./components/products/ProductList";
+import { PaperProvider } from "react-native-paper";
+import { getProducts } from "./data/products";
 
 export default function App() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const products = getProducts();
+    setProducts(products);
+  }, []);
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>HOLA CODER!</Text>
-      {/*       <Text style={styles.text}> Ok?</Text> */}
-      {/* <Users user="Matias" /> */}
-      <StatusBar style="auto" />
-    </View>
+    <PaperProvider>
+      <View style={styles.container}>
+        <Text style={styles.text}>HOLA!</Text>
+        {/* <StatusBar style="auto" /> */}
+        <ProductList products={products} />
+      </View>
+    </PaperProvider>
   );
 }
+AppRegistry.registerComponent("curso-react-native-61300", () => Main); // Proporciona el tema  a todos los componentes
 
 const styles = StyleSheet.create({
   container: {
