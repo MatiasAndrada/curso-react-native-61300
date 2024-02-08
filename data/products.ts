@@ -1,12 +1,19 @@
 
-export function getProducts() {
-    const URL = "https://fakestoreapi.com/products";
-    return fetch(URL)
-        .then(response => response.json())
-        .then(data => {
-            return data
+export async function getProducts() {
+    try {
+        const URL = "https://dummyjson.com/products?limit=100";
+        const response = await fetch(URL, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+
         })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+
+        const data = await response.json()
+        return Promise.resolve(data)
+    }
+    catch (error) {
+        return Promise.reject(error)
+    }
 }

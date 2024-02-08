@@ -12,3 +12,6 @@ export interface Rating {
     count: number;
     rate: number;
 }
+
+//?Category
+export type Category = string[];

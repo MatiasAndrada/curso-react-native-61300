@@ -5,7 +5,7 @@ export const colors = {
   highlightBackground: "#4d648d",
   primary: "#acc2ef",
   secondary: "#3D5A80",
-  tertiary: "#cee8ff",
+  highlight: "#cee8ff",
   primaryText: "#FFFFFF",
   secondaryText: "#e0e0e0",
 };
