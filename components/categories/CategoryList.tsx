@@ -1,7 +1,5 @@
-import { View, FlatList } from "react-native";
+import { FlatList } from "react-native";
 import React, { useEffect, useState } from "react";
-
-import styles from "./styles/categoryList";
 import CategoryItem from "./CategoryItem";
 import type { Category } from "../../types/types";
 import { getCategories } from "../../data/categories";
@@ -25,7 +23,6 @@ const CategoryList = () => {
     return (
 
         <FlatList
-            /* contentContainerStyle={styles.flatList} */
             data={categories}
             numColumns={2}
             keyExtractor={(item) => item.toString()}

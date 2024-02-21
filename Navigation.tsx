@@ -8,8 +8,12 @@ import { colors } from "./styles/colors";
 import CartScreen from "./screens/Cart";
 import UserScreen from "./screens/User";
 import HomeScreen from "./screens/Home";
-import ProductListOfCategoryScreen from "./screens/ProductsOfCategory";
 
+//Home stack
+import ProductListOfCategoryScreen from "./screens/ProductsOfCategory";
+//User Stack
+import SignIn from "./components/signIn/SignIn"
+import SignUp from "./components/signUp/SignUp"
 
 const HomeStack = createNativeStackNavigator()
 
@@ -26,6 +30,37 @@ function HomeStackScreen() {
       />
       <HomeStack.Screen name="ProductListOfCategoryScreen" component={ProductListOfCategoryScreen} />
     </HomeStack.Navigator>
+  )
+}
+
+const UserStack = createNativeStackNavigator()
+
+function UserStackScreen() {
+  return (
+    <UserStack.Navigator
+      initialRouteName="Authentication">
+      <UserStack.Screen name="Authentication" component={UserScreen}
+        options={
+          {
+            headerShown: false,
+          }
+        }
+      />
+      <UserStack.Screen name="SignIn" component={SignIn}
+        options={
+          {
+            headerShown: false,
+          }
+        }
+      />
+      <UserStack.Screen name="SignUp" component={SignUp}
+        options={
+          {
+            headerShown: false,
+          }
+        }
+      />
+    </UserStack.Navigator>
   )
 }
 
@@ -60,7 +95,7 @@ function MyTabs() {
           }
         }
       />
-      <Tab.Screen name="User" component={UserScreen}
+      <Tab.Screen name="User" component={UserStackScreen}
         options={{
           tabBarLabel: "User",
           tabBarIcon: ({ color, size }) => (

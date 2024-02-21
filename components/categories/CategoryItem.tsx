@@ -1,21 +1,21 @@
 import { View, Text, Pressable } from 'react-native';
 import React from 'react';
 import { useNavigation } from "@react-navigation/native";
-import style from './styles/categoryItem'
+import styles from './styles/categoryItem'
 import { colors } from '../../styles/colors';
 
 const CategoryItem = ({ category }) => {
     const navigation = useNavigation();
 
     return (
-        <View style={style.gridItem}>
+        <View style={styles.gridItem}>
             <Pressable
-                style={style.button}
+                style={styles.button}
                 android_ripple={{ color: colors.highlight }}
                 onPress={() => navigation.navigate('ProductListOfCategoryScreen', { category: category })}
             >
-                <View style={style.innerContainer}>
-                    <Text style={style.textStyling} ellipsizeMode='tail'>{category}</Text>
+                <View style={styles.innerContainer}>
+                    <Text style={styles.textStyling} ellipsizeMode='tail'>{category}</Text>
                 </View>
             </Pressable>
         </View>
