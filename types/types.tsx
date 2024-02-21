@@ -2,15 +2,14 @@ export interface Product {
     id: number;
     title: string;
     description: string;
-    category: string;
-    image: string;
     price: number;
-    rating: Rating;
-}
-
-export interface Rating {
-    count: number;
-    rate: number;
+    discountPorcentage: number,
+    rating: number,
+    stock: number,
+    brand: string;
+    category: string;
+    thumbnail: string;
+    images: string[];
 }
 
 //?Category

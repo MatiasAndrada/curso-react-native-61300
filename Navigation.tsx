@@ -1,26 +1,45 @@
-import * as React from "react";
+import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { colors } from "./styles/colors";
+// Screens
+import CartScreen from "./screens/Cart";
+import UserScreen from "./screens/User";
+import HomeScreen from "./screens/Home";
+import ProductListOfCategoryScreen from "./screens/ProductsOfCategory";
+
+
+const HomeStack = createNativeStackNavigator()
+
+function HomeStackScreen() {
+  return (
+    <HomeStack.Navigator
+      initialRouteName="HomeScreen">
+      <HomeStack.Screen name="HomeScreen" component={HomeScreen}
+        options={
+          {
+            headerShown: false,
+          }
+        }
+      />
+      <HomeStack.Screen name="ProductListOfCategoryScreen" component={ProductListOfCategoryScreen} />
+    </HomeStack.Navigator>
+  )
+}
 
 const Tab = createBottomTabNavigator()
-
-// Screens
-import HomeScreen from "./screens/Home";
-import CartScreen from "./screens/Cart";
-import SettingsScreen from "./screens/User";
-import UserScreen from "./screens/User";
 
 function MyTabs() {
   return (
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
-        tabBarActiveTintColor: colors.highlight
+        tabBarActiveTintColor: colors.active
       }}
     >
-      <Tab.Screen name="Home" component={HomeScreen}
+      <Tab.Screen name="Home" component={HomeStackScreen}
         options={
           {
             tabBarLabel: "Home",

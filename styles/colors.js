@@ -6,6 +6,7 @@ export const colors = {
   primary: "#acc2ef",
   secondary: "#3D5A80",
   highlight: "#cee8ff",
-  primaryText: "#FFFFFF",
-  secondaryText: "#e0e0e0",
+  textPrimary: "#FFFFFF",
+  textSecondary: "#e0e0e0",
+  active: "blue",
 };

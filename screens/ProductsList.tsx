@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text } from 'react-native'
+import React, { useEffect, useState } from "react";
+import ProductList from '../components/products/ProductList'
 import { getProducts } from '../data/products';
-import ProductList from '../components/products/ProductList';
 
-export default function CartScreen() {
+const ProductsList = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
         const loadProducts = async () => {
@@ -16,11 +16,12 @@ export default function CartScreen() {
         };
         loadProducts();
     }, []);
-
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ fontSize: 26, fontWeight: 'bold' }}>Cart Screen</Text>
+        <View>
+            <Text>ProductsList</Text>
             <ProductList products={products} />
         </View>
-    );
+    )
 }
+
+export default ProductsList

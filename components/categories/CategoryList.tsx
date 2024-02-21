@@ -1,30 +1,37 @@
-import { Text, View, FlatList } from "react-native";
+import { View, FlatList } from "react-native";
 import React, { useEffect, useState } from "react";
+
+import styles from "./styles/categoryList";
 import CategoryItem from "./CategoryItem";
 import type { Category } from "../../types/types";
 import { getCategories } from "../../data/categories";
 
 const CategoryList = () => {
     const [categories, setCategories] = useState([] as Category[]);
+
     useEffect(() => {
         const loadCategories = async () => {
             try {
-                const categories = await getCategories();
-                setCategories(categories);
+                const loadedCategories = await getCategories();
+                setCategories(loadedCategories);
             } catch (error) {
                 console.error("Error loading categories", error);
             }
         };
+
         loadCategories();
     }, []);
-    return (
-        <View>
-            {/*             <FlatList
-                data={categories}
-                renderItem={({ item }) => { return <CategoryItem category={item} /> }}
 
-            /> */}
-        </View>
+    return (
+
+        <FlatList
+            /* contentContainerStyle={styles.flatList} */
+            data={categories}
+            numColumns={2}
+            keyExtractor={(item) => item.toString()}
+            renderItem={({ item }) => <CategoryItem category={item} />}
+        />
+
     );
 }
 

@@ -1,10 +1,26 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import styles from './styles/user';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 export default function UserScreen() {
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ fontSize: 26, fontWeight: 'bold' }}>User Screen</Text>
-        </View>
+        <View style={styles.container}>
+            <View style={styles.containerCard}>
+                <Text style={styles.title}>Authentication</Text>
+                <TouchableOpacity
+                    style={styles.buttonSignIn}
+                    onPress={() => alert('User button pressed')}
+                >
+                    <Text style={styles.buttonText}>Login</Text>
+                </TouchableOpacity>
+                <Text style={styles.or}>or</Text>
+                <TouchableOpacity
+                    style={styles.buttonSignUp}
+                    onPress={() => alert('User button pressed')}
+                >
+                    <Text style={styles.buttonText}>Sign Up</Text>
+                </TouchableOpacity>
+            </View>
+        </View >
     );
 }

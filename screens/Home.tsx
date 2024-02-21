@@ -1,36 +1,17 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 import React from 'react';
-import { colors } from '../styles/colors';
+import styles from './styles/home';
+import Search from '../components/ui/Search';
 import CategoryList from '../components/categories/CategoryList';
-import ProductList from '../components/products/ProductList';
+
 
 export default function HomeScreen() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>List of products</Text>
-            <Text style={styles.categoryTitle}>Categories:</Text>
+            <Text style={styles.title}>Select Category</Text>
+            {/*  <Search name="categories" onSearch={(data) => { console.log(data) }} /> */}
             <CategoryList />
-            {/* <ProductList /> */}
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: colors.background
-    },
-    title: {
-        fontSize: 26,
-        fontWeight: 'bold',
-    },
-    categoryTitle: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        alignSelf: 'flex-start',
-        marginLeft: 8,
-    },
-});
