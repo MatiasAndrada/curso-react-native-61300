@@ -1,33 +1,42 @@
 import React, { useEffect, useState } from "react";
 import { View, Text } from "react-native";
-import styles from "./styles/productsOfCategory";
+//Store
+import { useSelector } from "react-redux";
+//Components
 import ProductList from "../components/products/ProductList";
 import Search from "../components/ui/Search";
-import { useSelector } from "react-redux";
+//Styles
+import styles from "./styles/productsOfCategory";
+//Functions
+import { useGetProductsByCategoryQuery } from "../services/shopServices";
+//Types
 import type { RootState } from "../store";
 import type { Product } from "../types";
-import { getProductsOfCategory } from "../data/products";
 
 const ProductsListOfCategory = () => {
+  const [keyword, setKeyword] = useState("" as string);
+  const [products, setProducts] = useState<Product[]>([]);
   const category = useSelector((state: RootState) => state.shopReducer.value.categorySelected);
-  console.log("🦇  ProductsListOfCategory  category:", category)
 
-  const [products, setProducts] = useState([] as Product[]);
+
+  const { data: productsFilteredByCategory, isLoading, error } = useGetProductsByCategoryQuery(category);
+
+
 
   useEffect(() => {
-    if (!category) return;
-    const loadProducts = async () => {
-      try {
-        const products = await getProductsOfCategory(category);
-        setProducts(products);
-      } catch (error) {
-        console.error("Error loading products", error);
-      }
-    };
-    loadProducts();
-  }, []);
+    if (productsFilteredByCategory) {
+      const productsRaw: Product[] = Object.values(productsFilteredByCategory)
+      const productsFiltered: Product[] = productsRaw.filter((product: Product) =>
+        product.title.includes(keyword)
+      );
+      setProducts(productsFiltered);
+    }
+  }, [productsFilteredByCategory, keyword]);
+
+
   return (
     <View style={styles.container}>
+      <Search onSearch={setKeyword} />
       <ProductList products={products} />
     </View>
   );

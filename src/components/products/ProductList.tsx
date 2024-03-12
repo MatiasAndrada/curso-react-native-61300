@@ -5,6 +5,14 @@ import type { Product } from "../../types";
 import styles from "./styles/productList";
 
 const ProductList = ({ products }: { products: Product[] }) => {
+
+  /*   if (products.length === 0) {
+      return (
+        <View style={styles.emptyContainer}>
+          <Text style={styles.emptyText}>No products found</Text>
+        </View>
+      );
+    } */
   return (
     <FlatList
       data={products}

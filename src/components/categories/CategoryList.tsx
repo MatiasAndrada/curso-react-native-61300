@@ -3,27 +3,16 @@ import React, { useEffect, useState } from "react";
 import CategoryItem from "./CategoryItem";
 import type { Category } from "../../types";
 import { getCategories } from "../../data/categories";
+import { useGetCategoriesQuery } from "../../services/shopServices";
 
 const CategoryList = () => {
-    const [categories, setCategories] = useState([] as Category[]);
 
-    useEffect(() => {
-        const loadCategories = async () => {
-            try {
-                const loadedCategories = await getCategories();
-                setCategories(loadedCategories);
-            } catch (error) {
-                console.error("Error loading categories", error);
-            }
-        };
-
-        loadCategories();
-    }, []);
+    const { data, isLoading, error } = useGetCategoriesQuery(undefined);
 
     return (
 
         <FlatList
-            data={categories}
+            data={data}
             numColumns={2}
             keyExtractor={(item) => item.toString()}
             renderItem={({ item }) => <CategoryItem category={item} />}

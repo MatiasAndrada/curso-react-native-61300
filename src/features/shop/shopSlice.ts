@@ -14,12 +14,15 @@ export const shopSlice = createSlice({
     reducers: {
         setCategorySelected: (state, action) => {
             const categorySelected = action.payload;
-        }
-
-
+            state.value.categorySelected = categorySelected;
+        },
+        setProductsFilteredByCategory: (state, action) => {
+            const productsFilteredByCategory = action.payload;
+            state.value.productsFilteredByCategory = productsFilteredByCategory;
+        },
     },
 });
 
-export const { setCategorySelected } = shopSlice.actions;
+export const { setCategorySelected, setProductsFilteredByCategory } = shopSlice.actions;
 
 export default shopSlice.reducer;

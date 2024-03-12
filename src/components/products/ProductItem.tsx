@@ -5,8 +5,10 @@ import { styles } from "./styles/productItem";
 import { colors } from "../../styles/colors";
 import type { Product } from "../../types"
 
-const ProductItem = ({ product }) => {
-  const { title, price, thumbnail } = product;
+const ProductItem = ({ product }: { product: Product }) => {
+
+  const { title, price, thumbnail, } = product;
+
   return (
     <Card style={styles.cardContainer}>
       <Card.Cover source={{ uri: thumbnail }} style={styles.imageCard} />

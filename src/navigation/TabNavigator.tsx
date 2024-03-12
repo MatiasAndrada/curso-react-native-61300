@@ -3,8 +3,9 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 
 //Screens
 import StoreStack from "./StoreStack";
-import AuthStack from "./AuthStack";
 import CartScreen from "../screens/Cart";
+import OrdersScreen from "../screens/Orders";
+import AuthStack from "./AuthStack";
 
 //Styles
 import { colors } from "../styles/colors";
@@ -29,6 +30,7 @@ function MyTabs() {
                     ),
                 }}
             />
+
             <Tab.Screen
                 name="Cart"
                 component={CartScreen}
@@ -43,16 +45,16 @@ function MyTabs() {
                     ),
                 }}
             />
-            {/*       <Tab.Screen name="Orders" component={OrdersScreen}
-        options={
-        {
-            tabBarLabel: "Orders",
-            tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="clipboard-list" color={color} size={size} />
-            )
-        }
-        }
-      /> */}
+            <Tab.Screen name="Orders" component={OrdersScreen}
+                options={
+                    {
+                        tabBarLabel: "Orders",
+                        tabBarIcon: ({ color, size }) => (
+                            <MaterialCommunityIcons name="clipboard-list" color={color} size={size} />
+                        )
+                    }
+                }
+            />
             <Tab.Screen
                 name="Auth"
                 component={AuthStack}

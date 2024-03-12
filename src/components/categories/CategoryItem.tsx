@@ -1,8 +1,7 @@
 import React from 'react';
 import { View, Text, Pressable } from 'react-native';
 //Store 
-import { useSelector, useDispatch } from 'react-redux';
-import type { RootState } from '../../store';
+import { useDispatch } from 'react-redux';
 import { setCategorySelected } from '../../features/shop/shopSlice';
 //Styles
 import styles from './styles/categoryItem'

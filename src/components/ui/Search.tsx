@@ -1,9 +1,13 @@
 import { useState } from "react";
-import { Pressable, StyleSheet, TextInput, View } from "react-native";
+import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 
-const Search = ({ name, onSearch }) => {
+type SearchProps = {
+    onSearch: (input: string) => void;
+};
+
+const Search = ({ onSearch }: SearchProps) => {
     const [input, setInput] = useState("");
 
     // handleSearch va a realizar un filtrado de los productos utilizando el valor guardado en "input"
@@ -25,7 +29,7 @@ const Search = ({ name, onSearch }) => {
                     style={styles.input}
                     value={input}
                     onChangeText={setInput}
-                    placeholder={`Search ${name}`}
+                    placeholder="Buscar producto..."
                 />
                 <Pressable onPress={handleSearch}>
                     <AntDesign name="search1" size={25} color="black" />
@@ -45,8 +49,6 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "flex-start",
-        width: '100%',
-        flex: 1
     },
     inputContainer: {
         flexDirection: "row",
