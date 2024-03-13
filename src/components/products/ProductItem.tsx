@@ -1,13 +1,20 @@
-import { View } from "react-native";
+/* import { Pressable } from "react-native"; */
+import { Button, Card, Text } from "react-native-paper";
 import React from "react";
-import { Avatar, Button, Card, Text } from "react-native-paper";
+//Store
+import { UseDispatch } from "react-redux";
+//Styles
 import { styles } from "./styles/productItem";
-import { colors } from "../../styles/colors";
+/* import { colors } from "../../styles/colors"; */
 import type { Product } from "../../types"
 
 const ProductItem = ({ product }: { product: Product }) => {
 
   const { title, price, thumbnail, } = product;
+
+  function addCartHandler() {
+    console.log("Pressed");
+  }
 
   return (
     <Card style={styles.cardContainer}>
@@ -26,7 +33,7 @@ const ProductItem = ({ product }: { product: Product }) => {
         <Button
           style={styles.buttonCard}
           mode="contained"
-          onPress={() => console.log("Pressed")}
+          onPress={() => addCartHandler()}
         >
           Add cart
         </Button>

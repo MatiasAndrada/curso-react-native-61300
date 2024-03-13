@@ -11,7 +11,7 @@ const store = configureStore({
     counterReducer,
     shopReducer,
     [shopApi.reducerPath]: shopApi.reducer,
-    /*     cartReducer */
+    cartReducer
   },
   middleware: (getDefaultMiddleware) => // Add the shopApi middleware for handling API calls
     getDefaultMiddleware().concat(shopApi.middleware),
