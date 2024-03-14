@@ -1,26 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
-import { getProducts } from '../data/products';
-import ProductList from '../components/products/ProductList';
+import React from 'react';
+import { View, Text, FlatList, Pressable } from 'react-native';
+/* import { getProducts } from '../data/products'; */
+//Store 
+import { useSelector } from 'react-redux';
+//Components
+import CartItem from '../components/cart/CartItem';
+//Types 
+import type { RootState } from '../store';
+import { usePostOrderMutation } from '../services/shopService';
 
 export default function CartScreen() {
-    /*     const [products, setProducts] = useState([]);
-        useEffect(() => {
-            const loadProducts = async () => {
-                try {
-                    const products = await getProducts();
-                    setProducts(products);
-                } catch (error) {
-                    console.error("Error loading products", error);
-                }
-            };
-            loadProducts();
-        }, []); */
+    const cartItems = useSelector((state: RootState) => state.cartReducer.value.items);
+    console.log("🦇  CartScreen  cartItems:", cartItems)
+    const total = useSelector((state: RootState) => state.cartReducer.value.total);
+    const [triggerPost, result] = usePostOrderMutation();
+
+    function confirmCart() {
+        triggerPost({
+            items: cartItems,
+            total: total,
+            user: "loggedUser"
+        });
+    }
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text style={{ fontSize: 26, fontWeight: 'bold' }}>Cart Screen</Text>
-            {/*             <ProductList products={products} /> */}
+            {cartItems.length > 0 ? (
+                <>
+                    <FlatList
+                        data={cartItems}
+                        renderItem={({ item }) => {
+                            return <CartItem item={item} />
+                        }}
+                        keyExtractor={(item) => item.id.toString()}
+                    />
+                    <Text>Total: ${total.toString()}</Text>
+                    <Pressable onPress={confirmCart}>
+                        <Text>Confirm</Text>
+                    </Pressable>
+                </>
+            ) : (
+                <Text>No hay productos agregados</Text>
+            )}
         </View>
     );
 }

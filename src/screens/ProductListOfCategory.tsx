@@ -8,7 +8,7 @@ import Search from "../components/ui/Search";
 //Styles
 import styles from "./styles/productsOfCategory";
 //Functions
-import { useGetProductsByCategoryQuery } from "../services/shopServices";
+import { useGetProductsByCategoryQuery } from "../services/shopService";
 //Types
 import type { RootState } from "../store";
 import type { Product } from "../types";

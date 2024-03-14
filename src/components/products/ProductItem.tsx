@@ -2,18 +2,31 @@
 import { Button, Card, Text } from "react-native-paper";
 import React from "react";
 //Store
-import { UseDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../features/shop/cartSlice";
 //Styles
 import { styles } from "./styles/productItem";
-/* import { colors } from "../../styles/colors"; */
-import type { Product } from "../../types"
+//Types
+import type { Product, CartItem } from "../../types";
 
 const ProductItem = ({ product }: { product: Product }) => {
+  const dispatch = useDispatch();
+  const { id, title, brand, price, discountPorcentage, category, thumbnail, } = product;
 
-  const { title, price, thumbnail, } = product;
+  const cartItem: CartItem = {
+    id,
+    quantity: 1,
+    title,
+    brand,
+    price,
+    discountPorcentage,
+    category,
+    thumbnail,
+  };
 
   function addCartHandler() {
-    console.log("Pressed");
+
+    dispatch(addItem({ ...cartItem, quantity: 1 }))
   }
 
   return (

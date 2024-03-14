@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import CategoryItem from "./CategoryItem";
 import type { Category } from "../../types";
 import { getCategories } from "../../data/categories";
-import { useGetCategoriesQuery } from "../../services/shopServices";
+import { useGetCategoriesQuery } from "../../services/shopService";
 
 const CategoryList = () => {
 
