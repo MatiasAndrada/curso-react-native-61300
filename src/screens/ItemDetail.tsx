@@ -73,13 +73,13 @@ const styles = StyleSheet.create({
         padding: 6,
     },
     descriptionText: {
-        fontFamily: "InterRegular",
+        /* fontFamily: "InterRegular", */
         fontSize: 16,
         color: "black",
         paddingVertical: 4,
     },
     descriptionTextPrice: {
-        fontFamily: "InterRegular",
+        /* fontFamily: "InterRegular", */
         fontSize: 25,
         color: "black",
         paddingVertical: 6,

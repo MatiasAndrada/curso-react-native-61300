@@ -1,10 +1,14 @@
 import * as React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import styles from './styles/auth';
+//Styles
+import styles from '../styles/auth';
+//Types
+import type { StackNavigationProp } from '@react-navigation/stack';
+import { StackParamList } from '../../navigation/AuthStack';
 
-export default function AuthScreen({ navigation }) {
-    /*    const navigation = useNavigation(); */
+type NavigationProp = StackNavigationProp<StackParamList, 'Authentication'>;
+
+export default function AuthScreen({ navigation }: { navigation: NavigationProp }) {
     return (
         <View style={styles.container}>
             <View style={styles.containerCard}>

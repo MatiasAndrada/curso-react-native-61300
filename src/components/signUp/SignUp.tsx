@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import styles from "./styles/signUp";
 
 
-export default class signUp extends Component {
+export default class SignUp extends Component {
     render() {
         return (
             <View style={styles.container}>

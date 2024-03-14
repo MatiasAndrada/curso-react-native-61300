@@ -19,12 +19,12 @@ export const styles = StyleSheet.create({
   },
   text: {
     width: "70%",
-    fontFamily: "InterRegular",
+    /* fontFamily: "InterRegular", */
     fontSize: 20,
   },
   textMin: {
     width: "70%",
-    fontFamily: "InterRegular",
+    /* fontFamily: "InterRegular", */
     fontSize: 15,
   },
 });
