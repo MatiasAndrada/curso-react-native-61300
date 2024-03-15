@@ -1,6 +1,7 @@
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { Text, TextInput, View } from "react-native";
 import React, { useState } from "react";
-import { colors } from "../../styles/colors";
+//Styles
+import styles from "./styles/inputForm";
 
 interface InputFormProps {
     label: string;
@@ -33,31 +34,3 @@ const InputForm = ({ label, error, onChange, isSecure }: InputFormProps) => {
 
 export default InputForm;
 
-const styles = StyleSheet.create({
-    inputContainer: {
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        width: "100%",
-    },
-    subtitle: {
-        width: "90%",
-        fontSize: 16,
-
-    },
-    error: {
-        fontSize: 16,
-        color: "red",
-
-        fontStyle: "italic",
-    },
-    input: {
-        width: "90%",
-        borderWidth: 0,
-        borderBottomWidth: 3,
-        borderBottomColor: colors.highlight,
-        padding: 2,
-
-        fontSize: 14,
-    },
-});

@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
+
     gap: 30,
     paddingHorizontal: 16,
     backgroundColor: colors.background,
@@ -26,25 +27,20 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
-  input: {
-    backgroundColor: colors.highlight,
-    padding: 10,
-    borderRadius: 10,
+
+  redirect: {
     marginVertical: 10,
-    fontSize: 20,
-  },
-  button: {
-    marginVertical: 10,
-    backgroundColor: colors.secondary,
-    padding: 12,
+    /*     backgroundColor: colors.secondary, */
+    paddingHorizontal: 12,
+    paddingVertical: 6,
     width: "60%",
     alignSelf: "center",
-    borderRadius: borderRadius.lg,
   },
   buttonText: {
     textAlign: "center",
     fontSize: 20,
-    color: "#000",
+    textDecorationLine: "underline",
+    color: colors.active,
   },
 });
 

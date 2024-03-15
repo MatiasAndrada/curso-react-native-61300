@@ -8,9 +8,10 @@ export default function Navigation() {
     const [user, setUser] = useState(null)
     return (
         <NavigationContainer >
-            {
+            <MyTabs />
+            {/*             {
                 user ? <MyTabs /> : <AuthStack />
-            }
+            } */}
         </NavigationContainer>
     )
 }

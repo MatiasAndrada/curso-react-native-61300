@@ -11,7 +11,6 @@ import { usePostOrderMutation } from '../services/shopService';
 
 export default function CartScreen() {
     const cartItems = useSelector((state: RootState) => state.cartReducer.value.items);
-    console.log("🦇  CartScreen  cartItems:", cartItems)
     const total = useSelector((state: RootState) => state.cartReducer.value.total);
     const [triggerPost, result] = usePostOrderMutation();
 

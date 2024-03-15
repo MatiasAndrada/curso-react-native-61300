@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 //Styles
-import styles from '../styles/auth';
+import styles from './styles/auth';
 //Types
 import type { StackNavigationProp } from '@react-navigation/stack';
 import { StackParamList } from '../../navigation/AuthStack';
@@ -24,7 +24,7 @@ export default function AuthScreen({ navigation }: { navigation: NavigationProp 
                     style={styles.buttonSignUp}
                     onPress={() => navigation.navigate('SignUp')}
                 >
-                    <Text style={styles.buttonText}>Sign Up</Text>
+                    <Text style={styles.buttonText}>Register</Text>
                 </TouchableOpacity>
             </View>
         </View >

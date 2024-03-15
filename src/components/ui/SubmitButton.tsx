@@ -1,6 +1,7 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import React from "react";
-import { colors } from "../../styles/colors";
+//Styles
+import styles from "./styles/submitButton";
 
 interface SubmitButtonProps {
     onPress: () => void;
@@ -16,19 +17,3 @@ const SubmitButton = ({ onPress, title }: SubmitButtonProps) => {
 };
 
 export default SubmitButton;
-
-const styles = StyleSheet.create({
-    button: {
-        backgroundColor: colors.secondary,
-        borderRadius: 6,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 8,
-        width: '60%'
-    },
-    text: {
-        color: 'white',
-        /*         fontFamily: 'InterRegular', */
-        fontSize: 22
-    },
-});

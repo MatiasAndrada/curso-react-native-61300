@@ -1,8 +1,11 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, ActivityIndicator, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
 //Components
 import InputForm from "../../components/ui/InputForm";
 import SubmitButton from "../../components/ui/SubmitButton";
+//Styles
+import styles from "./styles/signIn";
+import { colors } from "../../styles";
 //Services
 import { useSignUpMutation } from "../../services/authService";
 //Validations
@@ -60,29 +63,33 @@ const SignUp = ({ navigation }: { navigation: NavigationProp }) => {
     }, [result]);
 
     return (
-        <View>
-            <Text>Register</Text>
-            <InputForm label={"Email"} error={errorMail} onChange={setEmail} />
-            <InputForm
-                label={"Password"}
-                error={errorPassword}
-                onChange={setPassword}
-                isSecure={true}
-            />
-            <InputForm
-                label={"Confirm password"}
-                error={errorConfirmPassword}
-                onChange={setConfirmPassword}
-                isSecure={true}
-            />
-            <Pressable onPress={() => navigation.navigate("SignIn")}>
-                <Text>Ir al login</Text>
-            </Pressable>
-            <SubmitButton title={"Register"} onPress={onSubmit} />
+        <View style={styles.container}>
+            <View style={styles.containerCard}>
+                <Text style={styles.title}>Register</Text>
+                <InputForm label={"Email"} error={errorMail} onChange={setEmail} />
+                <InputForm
+                    label={"Password"}
+                    error={errorPassword}
+                    onChange={setPassword}
+                    isSecure={true}
+                />
+                <InputForm
+                    label={"Confirm password"}
+                    error={errorConfirmPassword}
+                    onChange={setConfirmPassword}
+                    isSecure={true}
+                />
+                <Pressable onPress={() => navigation.navigate("SignIn")} style={styles.redirect}>
+                    <Text style={styles.buttonText}>Ir al login</Text>
+                </Pressable>
+                {result.isLoading ? (
+                    <ActivityIndicator size="large" color={colors.active} />
+                ) : (
+                    <SubmitButton title={"Sign Up"} onPress={onSubmit} />
+                )}
+            </View>
         </View>
     );
 };
 
 export default SignUp;
-
-const styles = StyleSheet.create({});
