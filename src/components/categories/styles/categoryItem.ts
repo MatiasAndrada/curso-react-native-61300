@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { colors } from "../../../styles/colors";
 
-export default styles = StyleSheet.create({
+const styles = StyleSheet.create({
   gridItem: {
     flex: 1,
     /*     alignItems: "flex-start", */
@@ -32,3 +32,5 @@ export default styles = StyleSheet.create({
     flex: 1,
   },
 });
+
+export default styles;

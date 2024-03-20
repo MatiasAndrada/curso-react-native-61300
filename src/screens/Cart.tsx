@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, Text, FlatList, Pressable } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 /* import { getProducts } from '../data/products'; */
 //Store 
 import { useSelector } from 'react-redux';
 //Components
-import CartItem from '../components/cart/CartItem';
+import CartList from '../components/cart/CartList';
+//Styles 
+import styles from "./styles/cart"
 //Types 
 import type { RootState } from '../store';
 import { usePostOrderMutation } from '../services/shopService';
@@ -27,13 +29,7 @@ export default function CartScreen() {
             <Text style={{ fontSize: 26, fontWeight: 'bold' }}>Cart Screen</Text>
             {cartItems.length > 0 ? (
                 <>
-                    <FlatList
-                        data={cartItems}
-                        renderItem={({ item }) => {
-                            return <CartItem item={item} />
-                        }}
-                        keyExtractor={(item) => item.id.toString()}
-                    />
+                    <CartList cartItems={cartItems} />
                     <Text>Total: ${total.toString()}</Text>
                     <Pressable onPress={confirmCart}>
                         <Text>Confirm</Text>

@@ -4,7 +4,7 @@ import { View, Text, Pressable } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { setCategorySelected } from '../../features/shop/shopSlice';
 //Styles
-import styles from './styles/categoryItem'
+import styles from "./styles/categoryItem"
 import { colors } from '../../styles/colors';
 
 import { useNavigation } from '@react-navigation/native';
