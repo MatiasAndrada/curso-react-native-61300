@@ -25,8 +25,8 @@ export default function CartScreen() {
     }
 
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ fontSize: 26, fontWeight: 'bold' }}>Cart Screen</Text>
+        <View style={styles.screenContainer}>
+            <Text style={styles.titleText}>Cart Screen</Text>
             {cartItems.length > 0 ? (
                 <>
                     <CartList cartItems={cartItems} />
