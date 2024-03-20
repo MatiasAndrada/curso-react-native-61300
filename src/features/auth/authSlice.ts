@@ -16,7 +16,7 @@ interface SetUserPayload {
 }
 
 const initialState: AuthState = {
-    user: true,
+    user: false,
     token: null,
     imageCamera: null,
     localId: "",
@@ -43,7 +43,7 @@ export const authSlice = createSlice({
                 token: null,
             };
         },
-        setCameraImage: (state, action: PayloadAction<string>) => {
+        setCameraImage: (state, action: PayloadAction<string | null>) => {
             state.value = {
                 ...state.value,
                 imageCamera: action.payload,
@@ -55,9 +55,14 @@ export const authSlice = createSlice({
                 profileImage: action.payload,
             };
         },
-    },
+        logout: (state) => {
+            state.value =  {
+                ...initialState
+            }
+        }
+    }
 });
 
-export const { setUser, clearUser, setCameraImage, setProfileImage } = authSlice.actions;
+export const { setUser, clearUser, setCameraImage, setProfileImage, logout } = authSlice.actions;
 
 export default authSlice.reducer;

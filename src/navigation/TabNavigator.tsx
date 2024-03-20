@@ -5,7 +5,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import StoreStack from "./StoreStack";
 import CartScreen from "../screens/Cart";
 import OrdersScreen from "../screens/Orders";
-import AuthStack from "./AuthStack";
+import MyProfileStack from "./MyProfileStack";
 
 //Styles
 import { colors } from "../styles/colors";
@@ -17,6 +17,7 @@ function MyTabs() {
         <Tab.Navigator
             initialRouteName="Store"
             screenOptions={{
+                headerShown: false,
                 tabBarActiveTintColor: colors.active,
             }}
         >
@@ -56,10 +57,10 @@ function MyTabs() {
                 }
             />
             <Tab.Screen
-                name="Auth"
-                component={AuthStack}
+                name="MyProfile"
+                component={MyProfileStack}
                 options={{
-                    tabBarLabel: "Auth",
+                    tabBarLabel: "Profile",
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="account" color={color} size={size} />
                     ),
