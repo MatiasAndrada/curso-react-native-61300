@@ -20,16 +20,6 @@ export const orderSlice = createSlice({
             const productRepeated = state.value.items.find(
                 (item) => item.id === action.payload.id
             );
-            if (productRepeated) {
-                state.value.items = state.value.items.map((item) => {
-                    if (item.id === action.payload.id) {
-                        item.quantity += action.payload.quantity;
-                    }
-                    return item;
-                });
-            } else {
-                state.value.items.push(action.payload);
-            }
             state.value.total = state.value.items.reduce(
                 (acc, currentItem) => acc + currentItem.price * currentItem.quantity, 0);
             //state.value.updatedAt = new Date().toLocaleString();
