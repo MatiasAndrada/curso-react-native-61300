@@ -1,23 +1,17 @@
-import type { CartItem } from "../../types";
+
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-// Define el estado inicial
-interface CartState {
-    user: string | null;
-    updatedAt: string | null;
-    total: number;
-    items: CartItem[];
-}
+//Types 
+import type { OrderState, CartItem } from "../../types";
 
-const initialState: CartState = {
-    user: null,
-    updatedAt: null,
+const initialState: OrderState = {
     total: 0,
     items: [],
+    user: null
 };
 //*se muta el estado, por que cambiarlo  va en contra del principio de inmutabilidad
-export const cartSlice = createSlice({
-    name: "cart",
+export const orderSlice = createSlice({
+    name: "order",
     initialState: {
         value: initialState,
     },
@@ -38,12 +32,12 @@ export const cartSlice = createSlice({
             }
             state.value.total = state.value.items.reduce(
                 (acc, currentItem) => acc + currentItem.price * currentItem.quantity, 0);
-            state.value.updatedAt = new Date().toLocaleString();
+            //state.value.updatedAt = new Date().toLocaleString();
         },
     },
     /*   removeItem: (state, action ) */
 });
 
-export const { addItem } = cartSlice.actions;
+export const { addItem } = orderSlice.actions;
 
-export default cartSlice.reducer;
+export default orderSlice.reducer;

@@ -1,3 +1,9 @@
+export interface Session {
+    localId: string,
+    email: string,
+    token: string
+
+}
 
 export interface Product {
     id: number;
@@ -22,6 +28,12 @@ export interface CartState {
     updatedAt: string;
     total: number | null;
     items: CartItem[];
+}
+
+export interface OrderState {
+    items: CartItem[],
+    total: number,
+    user: string | null
 }
 
 export type Category = "smartphones" | "laptops" | "fragrances" | "skincare" | "groceries" | "home-decoration" | "furniture" | "tops" | "womens-dresses" | "womens-shoes" | "mens-shirts" | "mens-shoes" | "mens-watches" | "womens-watches" | "womens-bags" | "womens-jewellery" | "sunglasses" | "automotive" | "motorcycle" | "lighting";

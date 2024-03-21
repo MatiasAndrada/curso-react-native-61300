@@ -9,10 +9,9 @@ interface AuthState {
 }
 
 interface SetUserPayload {
-    data: {
-        email: boolean;
-        idToken: null | string;
-    };
+    email: boolean;
+    idToken: null | string;
+
 }
 
 const initialState: AuthState = {
@@ -32,8 +31,8 @@ export const authSlice = createSlice({
         setUser: (state, action: PayloadAction<SetUserPayload>) => {
             state.value = {
                 ...state.value,
-                user: action.payload.data.email,
-                token: action.payload.data.idToken,
+                user: action.payload.email,
+                token: action.payload.idToken,
             };
         },
         clearUser: (state) => {
@@ -56,7 +55,7 @@ export const authSlice = createSlice({
             };
         },
         logout: (state) => {
-            state.value =  {
+            state.value = {
                 ...initialState
             }
         }

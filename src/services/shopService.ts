@@ -1,8 +1,8 @@
 import { base_url } from "../firebase/database";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { Product } from "../types";
+import type { Product, OrderState } from "../types";
 
-export const shopApi = createApi({
+export const shopApi: any = createApi({
     reducerPath: "shopApi",
     baseQuery: fetchBaseQuery({ baseUrl: base_url }),
     endpoints: (builder) => ({
@@ -20,7 +20,7 @@ export const shopApi = createApi({
             query: () => "categories.json",
         }),
         postOrder: builder.mutation({
-            query: ({ ...order }) => ({
+            query: (order: OrderState) => ({
                 url: "orders.json",
                 method: "POST",
                 body: order,
@@ -51,6 +51,13 @@ export const shopApi = createApi({
                     address: location.address
                 },
             })
+        }),
+        getOrders: builder.query({
+            query: (userId) => `orders.json?orderBy="userId"&equalTo="${userId}"`,
+            transformResponse: (response: { [key: string]: OrderState }) => {
+                const orders = Object.values(response);
+                return orders;
+            }
         })
     }),
 });
@@ -63,4 +70,5 @@ export const {
     usePostProfileImageMutation,
     useGetUserLocationQuery,
     usePostUserLocationMutation,
+    useGetOrdersQuery,
 } = shopApi;

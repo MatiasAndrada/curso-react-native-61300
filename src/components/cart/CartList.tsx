@@ -2,7 +2,6 @@ import { FlatList } from 'react-native'
 import React from 'react'
 //Components 
 import CartItem from './CartItem'
-
 //Types
 import type { CartItem as CartItemType } from '../../types'
 

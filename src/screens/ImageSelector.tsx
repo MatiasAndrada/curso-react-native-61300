@@ -4,7 +4,8 @@ import * as ImagePicker from "expo-image-picker";
 import { useDispatch, useSelector } from "react-redux";
 import { setCameraImage } from "../features/auth/authSlice";
 import { usePostProfileImageMutation } from "../services/shopService";
-
+//Styles
+import styles from "./styles/imageSelector";
 //Types 
 import type { RootState } from "../store";
 import type { StackNavigationProp } from "@react-navigation/stack";
@@ -13,7 +14,7 @@ import type { StackParamList } from "../navigation/MyProfileStack";
 type NavigationProp = StackNavigationProp<StackParamList, "ImageSelector">
 
 type Props = {
-    navigation: NavigationProp
+  navigation: NavigationProp
 }
 
 const ImageSelector = ({ navigation }: Props) => {
@@ -42,7 +43,8 @@ const ImageSelector = ({ navigation }: Props) => {
       });
 
       if (!result.canceled) {
-        setImage(result.assets[0].uri);
+        const uriImage: string = result.assets[0].uri
+        setImage(uriImage);
       }
     }
   };
@@ -78,24 +80,3 @@ const ImageSelector = ({ navigation }: Props) => {
 };
 
 export default ImageSelector;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 20,
-  },
-  image: {
-    width: 200,
-    height: 200,
-  },
-  noPhotoContainer: {
-    width: 200,
-    height: 200,
-    borderWidth: 2,
-    padding: 10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});

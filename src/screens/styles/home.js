@@ -11,7 +11,9 @@ export default styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
   title: {
+    marginTop: 15,
     fontSize: 26,
     fontWeight: "bold",
+    textAlign: "center",
   },
 });

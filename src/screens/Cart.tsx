@@ -12,6 +12,7 @@ import type { RootState } from '../store';
 import { usePostOrderMutation } from '../services/shopService';
 
 export default function CartScreen() {
+    const userToken = useSelector((state: RootState) => state.authReducer.value.token)
     const cartItems = useSelector((state: RootState) => state.cartReducer.value.items);
     const total = useSelector((state: RootState) => state.cartReducer.value.total);
     const [triggerPost, result] = usePostOrderMutation();
@@ -20,7 +21,7 @@ export default function CartScreen() {
         triggerPost({
             items: cartItems,
             total: total,
-            user: "loggedUser"
+            user: userToken
         });
     }
 
@@ -36,7 +37,7 @@ export default function CartScreen() {
                     </Pressable>
                 </>
             ) : (
-                <Text>No hay productos agregados</Text>
+                <Text style={styles.isEmptyText}>No hay productos agregados</Text>
             )}
         </View>
     );

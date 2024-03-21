@@ -14,17 +14,16 @@ export default function StoreStack() {
     return (
         <Stack.Navigator
             initialRouteName="StoreScreen"
-            screenOptions={{ header: () => <Header title="Store" /> }}
-
-            >
+            screenOptions={{ header: () => <Header title="store" /> }}
+        >
             <Stack.Screen name="StoreScreen" component={StoreScreen}
                 options={
                     {
-                        headerShown: false,
+                        headerShown: false
                     }
                 }
             />
             <Stack.Screen name="ProductListOfCategoryScreen" component={ProductListOfCategoryScreen} />
-        </Stack.Navigator>
+        </Stack.Navigator >
     )
 }
