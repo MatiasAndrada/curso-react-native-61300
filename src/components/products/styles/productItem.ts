@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
     /*     backgroundColor: colors.highlight, */
   },
   buttonCard: {
-    color: colors.highlight,
+    color: colors.textPrimary,
     backgroundColor: colors.lowlightBackground,
   },
 });

@@ -19,6 +19,13 @@ export const shopApi: any = createApi({
         getCategories: builder.query({
             query: () => "categories.json",
         }),
+        getOrders: builder.query({
+            query: (userId) => `orders.json?orderBy="userId"&equalTo="${userId}"`,
+            transformResponse: (response: { [key: string]: OrderState }) => {
+                const orders = Object.values(response);
+                return orders;
+            }
+        }),
         postOrder: builder.mutation({
             query: (order: OrderState) => ({
                 url: "orders.json",
@@ -52,13 +59,7 @@ export const shopApi: any = createApi({
                 },
             })
         }),
-        getOrders: builder.query({
-            query: (userId) => `orders.json?orderBy="userId"&equalTo="${userId}"`,
-            transformResponse: (response: { [key: string]: OrderState }) => {
-                const orders = Object.values(response);
-                return orders;
-            }
-        })
+
     }),
 });
 

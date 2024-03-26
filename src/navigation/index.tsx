@@ -16,7 +16,9 @@ import { fetchSession } from "../db";
 import { RootState } from "../store";
 
 const MainNavigator = () => {
+    /*
     const { user, localId } = useSelector((state: RootState) => state.authReducer.value);
+    console.log(user)
     const { data } = useGetProfileImageQuery(localId);
 
 
@@ -24,8 +26,10 @@ const MainNavigator = () => {
 
     useEffect(() => {
         (async () => {
+            console.log("useEffect")
             try {
                 const session = await fetchSession();
+                console.log(session)
                 if (session) {
                     const token = session.token
                     dispatch(setUser({ email: true, idToken: token }));
@@ -37,14 +41,15 @@ const MainNavigator = () => {
     }, []);
 
     useEffect(() => {
+        console.log("useEffect")
         if (data) {
             dispatch(setProfileImage(data.image));
         }
 
     }, [data]);
-
+*/
     return (
-        <NavigationContainer>{user ? <TabNavigator /> : <AuthStack />}</NavigationContainer>
+        <NavigationContainer>{/*user ?*/<TabNavigator /> /* : <AuthStack />*/}</NavigationContainer>
     );
 };
 

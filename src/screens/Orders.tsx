@@ -12,12 +12,13 @@ const OrdersScreen = () => {
     );*/
     return (
         <View style={styles.screenContainer}>
+            <Text style={styles.titleText}>Order Screen</Text>
             <FlatList
                 data={orders[0].items}
                 renderItem={({ item }) => <OrderItem item={item} />}
                 keyExtractor={(order) => order.id.toString()}
             />
-            <Text>Total Price:</Text>
+            <Text style={styles.totalText}>Total Price:</Text>
         </View>
     );
 };

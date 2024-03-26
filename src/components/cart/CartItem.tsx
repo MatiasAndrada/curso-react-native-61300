@@ -8,9 +8,10 @@ import type { CartItem as CartItemType } from '../../types'
 const CartItem = ({ item }: { item: CartItemType }) => {
     return (
         <View style={styles.cardContainer}>
-            <Text>{item.title}</Text>
+            <Text style={styles.titleText}>{item.title}</Text>
             {/* <Text>{item.brand}</Text> */}
-            <Text>{item.price.toString()}</Text>
+            <Text style={styles.quantityText}>x{item.quantity.toString()}</Text>
+            <Text style={styles.priceText}>${item.price.toString()}</Text>
         </View>
     )
 }
