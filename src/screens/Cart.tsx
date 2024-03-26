@@ -31,9 +31,9 @@ export default function CartScreen() {
             {cartItems.length > 0 ? (
                 <>
                     <CartList cartItems={cartItems} />
-                    <Text>Total: ${total.toString()}</Text>
+                    <Text style={styles.totalText}>Total: ${total.toString()}</Text>
                     <Pressable onPress={confirmCart}>
-                        <Text>Confirm</Text>
+                        <Text style={styles.buttonText}>Confirm</Text>
                     </Pressable>
                 </>
             ) : (
