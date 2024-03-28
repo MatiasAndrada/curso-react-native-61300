@@ -13,8 +13,6 @@ import type { RootState } from '../store';
 import { usePostOrderMutation } from '../services/shopService';
 
 export default function CartScreen() {
-    const user = useSelector((state: RootState) => state.authReducer.value)
-    console.log(user)
     const userToken = useSelector((state: RootState) => state.authReducer.value.token)
     const cartItems = useSelector((state: RootState) => state.cartReducer.value.items);
     const total = useSelector((state: RootState) => state.cartReducer.value.total);
@@ -33,10 +31,10 @@ export default function CartScreen() {
             <Text style={styles.titleText}>Cart Screen</Text>
             {cartItems.length > 0 ? (
                 <>
-                    <CartList cartItems={cartItems} />
                     <Text style={styles.totalText}>Total: ${total.toString()}</Text>
+                    <CartList cartItems={cartItems} />
                     <Pressable onPress={confirmCart}>
-                        <Text style={styles.buttonText}>Confirm</Text>
+                        <Text style={styles.buttonText}>Generate Order</Text>
                     </Pressable>
                 </>
             ) : (

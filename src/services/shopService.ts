@@ -20,7 +20,7 @@ export const shopApi: any = createApi({
             query: () => "categories.json",
         }),
         getOrders: builder.query({
-            query: (userId) => `orders.json?orderBy="userId"&equalTo="${userId}"`,
+            query: (userId) => `orders.json?orderBy="user"&equalTo="${userId}"`,
             transformResponse: (response: { [key: string]: OrderState }) => {
                 const orders = Object.values(response);
                 return orders;

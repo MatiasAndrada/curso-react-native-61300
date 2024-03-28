@@ -7,6 +7,8 @@ const styles = StyleSheet.create({
     gap: 5,
     alignItems: "center",
     width: "100%",
+    paddingHorizontal: 5,
+    paddingVertical: 8,
   },
   subtitle: {
     width: "90%",

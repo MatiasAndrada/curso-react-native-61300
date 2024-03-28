@@ -51,8 +51,6 @@ export const fetchSession = (): Promise<Session | undefined> => {
                 [],
                 (_, result) => {
                     const user = result?.rows._array[0];
-                    console.log("fetchSession");
-                    console.log(user);
                     resolve(user);
                 },
                 (_, error) => {

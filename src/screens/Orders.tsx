@@ -16,6 +16,7 @@ const OrdersScreen = () => {
     const userToken = useSelector((state: RootState) => state.authReducer.value.token)
     const { data: orderItems, isLoading, error } = useGetOrdersQuery(userToken)
     console.log(orderItems)
+    console.log("err", error)
     const orderStore = useSelector((state: RootState) => state.orderReducer.value)
     console.log(orderStore)
     /*

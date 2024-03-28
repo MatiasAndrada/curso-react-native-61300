@@ -79,14 +79,15 @@ const SignUp = ({ navigation }: { navigation: NavigationProp }) => {
                     onChange={setConfirmPassword}
                     isSecure={true}
                 />
-                <Pressable onPress={() => navigation.navigate("SignIn")} style={styles.redirect}>
-                    <Text style={styles.buttonText}>Ir al login</Text>
-                </Pressable>
                 {result.isLoading ? (
                     <ActivityIndicator size="large" color={colors.active} />
                 ) : (
                     <SubmitButton title={"Sign Up"} onPress={onSubmit} />
                 )}
+                <Text style={styles.orText}>Or</Text>
+                <Pressable onPress={() => navigation.navigate("SignIn")} style={styles.redirect}>
+                    <Text style={styles.buttonText}>Ir al login</Text>
+                </Pressable>
             </View>
         </View>
     );

@@ -27,7 +27,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
-
+  orText: {
+    marginTop: 20,
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
   redirect: {
     marginVertical: 10,
     /*     backgroundColor: colors.secondary, */

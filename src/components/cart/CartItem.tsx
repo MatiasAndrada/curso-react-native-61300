@@ -9,10 +9,12 @@ const CartItem = ({ item }: { item: CartItemType }) => {
     return (
         <View style={styles.cardContainer}>
             <Text style={styles.titleText}>{item.title}</Text>
-            {/* <Text>{item.brand}</Text> */}
-            <Text style={styles.quantityText}>x{item.quantity.toString()}</Text>
-            <Text style={styles.priceText}>${item.price.toString()}</Text>
-        </View>
+            <View style={styles.leftContainer} >
+                {/* <Text>{item.brand}</Text> */}
+                <Text style={styles.quantityText}>x{item.quantity.toString()}</Text>
+                <Text style={styles.priceText}>${item.price.toString()}</Text>
+            </View>
+        </View >
     )
 }
 

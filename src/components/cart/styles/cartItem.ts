@@ -3,14 +3,22 @@ import { colors, borderRadius } from "../../../styles";
 
 const styles = StyleSheet.create({
     cardContainer: {
-        margin: 5,
+        margin: "auto",
+        marginVertical: 8,
         padding: 8,
+        width: "90%",
         flex: 1,
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: colors.neutralBackground,
         borderRadius: borderRadius.md
+    },
+    leftContainer: {
+        flex: 1,
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
     },
     titleText: {
         flex: 3,
@@ -20,13 +28,12 @@ const styles = StyleSheet.create({
     },
     quantityText: {
         flex: 1,
-        alignSelf: "flex-start",
         marginTop: 10,
         color: colors.textPrimary
     },
     priceText: {
         flex: 1,
-        alignSelf: "flex-end",
+
         marginTop: 10,
         color: colors.textPrimary
     },

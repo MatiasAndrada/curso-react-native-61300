@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors } from "../../styles/colors";
+import { colors, borderRadius } from "../../styles";
 
 const styles = StyleSheet.create({
     screenContainer: {
@@ -15,12 +15,17 @@ const styles = StyleSheet.create({
         color: colors.textPrimary
     },
     totalText: {
+        marginTop: 10,
         fontSize: 20,
         color: colors.textPrimary
     },
     buttonText: {
+        padding: 12,
+        marginBottom: 16,
         fontSize: 18,
-        color: colors.textPrimary
+        color: colors.textPrimary,
+        backgroundColor: colors.lowlightBackground,
+        borderRadius: borderRadius.md
     },
 
     isEmptyText: {
