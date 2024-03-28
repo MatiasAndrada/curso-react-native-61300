@@ -15,6 +15,15 @@ const styles = StyleSheet.create({
     },
     totalText: {
         color: colors.textPrimary,
+    },
+    buttonText: {
+        fontSize: 18,
+        color: colors.textPrimary
+    },
+
+    isEmptyText: {
+        marginTop: 10,
+        color: colors.textSecondary
     }
 })
 

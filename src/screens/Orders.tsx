@@ -1,20 +1,29 @@
-import { FlatList, View, Text } from "react-native";
+import { View, Text } from "react-native";
+import { useEffect } from "react";
 //Data
-//import orders from "../data/orders.json";
 //Components
-import OrderItem from "../components/orders/OrderItem";
+import OrderList from "../components/orders/OrderList";
+//Services
+import { useGetOrdersQuery } from "../services/shopService";
 //Store
-import { UseSelector, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 //Types
 import type { RootState } from "../store";
 //Styles
 import styles from "./styles/orders";
 
 const OrdersScreen = () => {
-
+    const userToken = useSelector((state: RootState) => state.authReducer.value.token)
+    const { data: orderItems, isLoading, error } = useGetOrdersQuery(userToken)
+    console.log(orderItems)
     const orderStore = useSelector((state: RootState) => state.orderReducer.value)
     console.log(orderStore)
-    
+    /*
+    const [triggerPost, result] = useGetOrdersQuery();
+    console.log(triggerPost)
+    console.log(result)
+*/
+
     /*
     const total = item.items.reduce(
         (acc, currentItem) => (acc += currentItem.quantity * currentItem.price),
@@ -23,11 +32,8 @@ const OrdersScreen = () => {
         <View style={styles.screenContainer}>
             <Text style={styles.titleText}>Order Screen</Text>
             {/*
-            <FlatList
-                data={orders[0].items}
-                renderItem={({ item }) => <OrderItem item={item} />}
-                keyExtractor={(order) => order.id.toString()}
-            />
+            
+            <OrderList orderItems={orderItems} />
     */}
             <Text style={styles.totalText}>Total Price:</Text>
         </View>

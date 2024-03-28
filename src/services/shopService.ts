@@ -64,12 +64,13 @@ export const shopApi: any = createApi({
 });
 
 export const {
+    useGetProducts,
     useGetProductsByCategoryQuery,
     useGetCategoriesQuery,
+    useGetOrdersQuery,
     usePostOrderMutation,
+    usePostUserLocationMutation,
     useGetProfileImageQuery,
     usePostProfileImageMutation,
     useGetUserLocationQuery,
-    usePostUserLocationMutation,
-    useGetOrdersQuery,
 } = shopApi;

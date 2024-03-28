@@ -9,9 +9,12 @@ import CartList from '../components/cart/CartList';
 import styles from "./styles/cart"
 //Types 
 import type { RootState } from '../store';
+//Services
 import { usePostOrderMutation } from '../services/shopService';
 
 export default function CartScreen() {
+    const user = useSelector((state: RootState) => state.authReducer.value)
+    console.log(user)
     const userToken = useSelector((state: RootState) => state.authReducer.value.token)
     const cartItems = useSelector((state: RootState) => state.cartReducer.value.items);
     const total = useSelector((state: RootState) => state.cartReducer.value.total);
