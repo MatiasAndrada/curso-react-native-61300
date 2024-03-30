@@ -1,22 +1,24 @@
-import { View, FlatList } from 'react-native'
+import { View, FlatList, Text } from 'react-native'
 import React from 'react'
 //Styles
 import styles from "./styles/orderList"
 //Components 
 import OrderItem from "./OrderItem"
 //types 
-import type { CartItem as OrderItemType } from '../../types'
 
-const OrderList = ({ orderItems }: { orderItems: OrderItemType[] }) => {
+
+const OrderList = ({ productsCount }: { productsCount: number[] }) => {
 
     return (
         <View style={styles.listContainer}>
             <FlatList
-                data={orderItems}
+                data={productsCount}
                 renderItem={({ item }) => {
-                    return <OrderItem item={item} />
+                    return (/*<OrderItem item={item} />*/
+                        <Text>{item}</Text>
+                    )
                 }}
-                keyExtractor={(item) => item.id.toString()}
+                keyExtractor={(item) => item.toString()}
             />
         </View >
     )

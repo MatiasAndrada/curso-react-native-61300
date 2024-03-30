@@ -11,6 +11,8 @@ import styles from "./styles/cart"
 import type { RootState } from '../store';
 //Services
 import { usePostOrderMutation } from '../services/shopService';
+//Libraries
+import { v4 as uuidv4 } from "uuid";
 
 export default function CartScreen() {
     const userToken = useSelector((state: RootState) => state.authReducer.value.token)
@@ -18,8 +20,13 @@ export default function CartScreen() {
     const total = useSelector((state: RootState) => state.cartReducer.value.total);
     const [triggerPost, result] = usePostOrderMutation();
 
+    function generateId() {
+        return uuidv4()
+    }
+
     function confirmCart() {
         triggerPost({
+            id: generateId(),
             items: cartItems,
             total: total,
             user: userToken
