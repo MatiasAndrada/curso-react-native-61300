@@ -26,7 +26,6 @@ const SignIn = ({ navigation }: { navigation: NavigationProp }) => {
     const [password, setPassword] = useState("");
     const [errorPassword, setErrorPassword] = useState("");
     const [triggerSignIn, result] = useLoginMutation();
-
     const dispatch = useDispatch();
 
     useEffect(() => {

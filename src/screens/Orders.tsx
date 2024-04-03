@@ -16,27 +16,36 @@ import styles from "./styles/orders";
 
 const OrdersScreen = () => {
     const dispatch = useDispatch()
-    const userToken = useSelector((state: RootState) => state.authReducer.value.token)
-    const { data: orderItems, isLoading, error }: { data: OrderState[], isLoading: boolean, error: any } = useGetOrdersQuery(userToken)
-    const orderStore = useSelector((state: RootState) => state.orderReducer.value)
+    const userId = useSelector((state: RootState) => state.authReducer.value.localId)
 
+    const { data: orderItems, isLoading, error } = useGetOrdersQuery(userId)
+    if (error) {
+        return console.log(error)
+    }
+    const orderStore = useSelector((state: RootState) => state.orderReducer.value)
 
     useEffect(() => {
         if (orderItems) {
             dispatch(setOrders(orderItems))
-            const itemsCount = orderItems
         }
-    }, [userToken, orderItems])
+    }, [userId, orderItems])
 
+    const totalOrders = orderStore.reduce((acc, item) => acc + item.total, 0)
 
     return (
         <View style={styles.screenContainer}>
-            <Text style={styles.titleText}>Order Screen</Text>
-
-
-            <OrderList orderItems={orderStore.total} />
-
-            <Text style={styles.totalText}>Total Price:</Text>
+            <Text style={styles.titleText}>Orders Screen</Text>
+            {
+                orderStore.length > 0 ? (
+                    <>
+                        <OrderList orders={orderStore} />
+                        <Text style={styles.totalText}>Total Price: ${totalOrders}</Text>
+                    </>
+                ) :
+                    (
+                        <Text style={styles.isEmptyText}>No hay productos agregados</Text>
+                    )
+            }
         </View>
     );
 };
