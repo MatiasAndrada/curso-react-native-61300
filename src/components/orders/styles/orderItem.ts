@@ -2,12 +2,12 @@ import { StyleSheet } from "react-native";
 import { colors } from "../../../styles";
 const styles = StyleSheet.create({
   cardContainer: {
-    height: 100,
+    height: 150,
     padding: 20,
     margin: 15,
     borderWidth: 2,
     borderRadius: 10,
-    flex:1,
+    flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -21,21 +21,33 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },*/
   titleText: {
-    flex: 3,
+    flex: 2,
     marginTop: 8,
     fontSize: 22,
     color: colors.textPrimary,
   },
-  quantityText: {
+  columnContainer: {
+    padding: 10,
     flex: 1,
-    alignSelf: "flex-start",
+    flexDirection: "column",
+    justifyContent: "flex-end",
+    alignItems: "center"
+
+  },
+  label: {
+    fontSize: 18,
+    color: colors.textSecondary
+  },
+  quantityText: {
     marginTop: 10,
+    fontSize: 18,
+    fontFamily: "bold",
     color: colors.textPrimary
   },
   priceText: {
-    flex: 1,
-    alignSelf: "flex-end",
-    marginTop: 10,
+    marginBottom: 18,
+    fontSize: 18,
+    fontWeight: "bold",
     color: colors.textPrimary
   },
 });
