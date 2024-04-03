@@ -6,12 +6,13 @@ import styles from "./styles/orderItem"
 import type { OrderState } from "../../types";
 
 const OrderItem = ({ item }: { item: OrderState }) => {
-    const { id, productsCount } = item
+    const { id, productsCount,total } = item
 
     return (
         <View style={styles.cardContainer}>
             <Text style={styles.titleText}>#{id} </Text>
             <Text style={styles.quantityText}>{productsCount}</Text>
+            <Text style={priceText}>{total}</Text>
         </View >
     );
 };
