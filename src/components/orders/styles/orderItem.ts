@@ -1,15 +1,16 @@
 import { StyleSheet } from "react-native";
-import { colors } from "../../../styles";
+import { colors, borderRadius } from "../../../styles";
 const styles = StyleSheet.create({
   cardContainer: {
-    height: 150,
-    padding: 20,
-    margin: 15,
+    marginTop: 10,
+    margin: "auto",
+    width: "100%",
+    padding: 8,
     borderWidth: 2,
-    borderRadius: 10,
+    borderRadius: borderRadius.md,
     flex: 1,
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
     gap: 4,
   },
@@ -22,32 +23,23 @@ const styles = StyleSheet.create({
   },*/
   titleText: {
     flex: 2,
-    marginTop: 8,
     fontSize: 22,
     color: colors.textPrimary,
   },
   columnContainer: {
     padding: 10,
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "flex-end",
-    alignItems: "center"
 
   },
   label: {
-    fontSize: 18,
+    fontSize: 14,
     color: colors.textSecondary
   },
   quantityText: {
-    marginTop: 10,
     fontSize: 18,
-    fontFamily: "bold",
     color: colors.textPrimary
   },
   priceText: {
-    marginBottom: 18,
     fontSize: 18,
-    fontWeight: "bold",
     color: colors.textPrimary
   },
 });

@@ -1,5 +1,5 @@
-import { View, Text } from "react-native";
-import { useEffect, useState } from "react";
+import { View, Text, Pressable } from "react-native";
+import { useEffect } from "react";
 //Data
 //Components
 import OrderList from "../components/orders/OrderList";
@@ -40,6 +40,9 @@ const OrdersScreen = () => {
                     <>
                         <OrderList orders={orderStore} />
                         <Text style={styles.totalText}>Total Price: ${totalOrders}</Text>
+                        <Pressable onPress={confirmCart}>
+                            <Text style={styles.buttonText}>Empty Cart</Text>
+                        </Pressable>
                     </>
                 ) :
                     (

@@ -10,12 +10,12 @@ const OrderItem = ({ item }: { item: OrderState }) => {
 
     return (
         <View style={styles.cardContainer}>
-            <text style={styles.label} >Order Id:</text>
+            <Text style={styles.label} >Order Id:</Text>
             <Text style={styles.titleText}>#{id.slice(-3)} </Text>
             <View style={styles.columnContainer} >
-                <text style={styles.label} >Count products:</text>
+                <Text style={styles.label} >Count products:</Text>
                 <Text style={styles.quantityText}>x{productsCount}</Text>
-                <text style={styles.label} >Total:</text>
+                <Text style={styles.label} >Total:</Text>
                 <Text style={styles.priceText}>${total}</Text>
             </View>
         </View >

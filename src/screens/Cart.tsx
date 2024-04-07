@@ -42,6 +42,9 @@ export default function CartScreen() {
                     <Pressable onPress={confirmCart}>
                         <Text style={styles.buttonText}>Generate Order</Text>
                     </Pressable>
+                    <Pressable onPress={confirmCart}>
+                        <Text style={styles.buttonText}>Empty Cart</Text>
+                    </Pressable>
                 </>
             ) : (
                 <Text style={styles.isEmptyText}>No hay productos agregados</Text>

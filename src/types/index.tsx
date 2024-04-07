@@ -1,8 +1,11 @@
 export interface Session {
     localId: string,
     email: string,
-    token: string
-
+    token: string,
+    registered: boolean,
+    displayName: null | string,
+    idToken: string,
+    kind: string
 }
 
 export interface Product {

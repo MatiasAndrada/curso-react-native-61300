@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
     text: {
         textAlign: "center",
         color: 'white',
-        /*         fontFamily: 'InterRegular', */
         fontSize: 22
     },
 });

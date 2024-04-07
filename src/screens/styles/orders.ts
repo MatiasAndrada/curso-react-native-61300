@@ -14,6 +14,8 @@ const styles = StyleSheet.create({
         color: colors.textPrimary
     },
     totalText: {
+        marginBottom: 12,
+        fontSize: 18,
         color: colors.textPrimary,
     },
     buttonText: {

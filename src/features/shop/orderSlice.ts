@@ -22,7 +22,6 @@ export const orderSlice = createSlice({
           productsCount: totalProducts,
         };
       });
-      console.log(updatedOrders)
       return {
         ...state,
         value: updatedOrders, // Return the updated orders array
