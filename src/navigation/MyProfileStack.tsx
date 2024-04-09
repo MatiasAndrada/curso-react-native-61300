@@ -1,12 +1,13 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+//Components
 import Header from "../components/ui/Header";
 import MyProfile from "../screens/MyProfile";
 import ImageSelector from "../screens/ImageSelector";
 //import LocationSelector from "../screens/LocationSelector";
 //Types 
 export type StackParamList = {
-    MyProfile: undefined,
-    ImageSelector: undefined
+  MyProfile: undefined,
+  ImageSelector: undefined
 }
 const Stack = createNativeStackNavigator();
 

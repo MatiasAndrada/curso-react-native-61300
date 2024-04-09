@@ -8,7 +8,7 @@ import { logout } from "../../features/auth/authSlice";
 import type { RootState } from "../../store";
 //import { deleteSession } from "../../db";
 
-function Header({ title }:{title: string}) {
+function Header({ title }: { title: string }) {
   const { localId, user } = useSelector((state: RootState) => state.authReducer.value);
   const dispatch = useDispatch();
 
@@ -38,6 +38,7 @@ export default Header;
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 20,
     height: 50,
     width: "100%",
     backgroundColor: colors.primary,

@@ -1,5 +1,5 @@
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
-import React, { useState } from "react";
+import { Image, Pressable, Text, View } from "react-native";
+import React from "react";
 import styles from "./styles/myProfile";
 import { useSelector } from "react-redux";
 //Types

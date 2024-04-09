@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { colors } from "../../styles/colors";
 
-export default styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
@@ -11,9 +11,12 @@ export default styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
   title: {
-    marginTop: 15,
+    marginTop: 10,
+    color: colors.textPrimary,
     fontSize: 26,
     fontWeight: "bold",
     textAlign: "center",
   },
 });
+
+export default styles;

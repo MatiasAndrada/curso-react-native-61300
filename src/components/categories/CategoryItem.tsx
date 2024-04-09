@@ -14,7 +14,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { StackParamList } from '../../navigation/StoreStack';
 import type { Category } from '../../types';
 
-type NavigationProp = StackNavigationProp<StackParamList, 'ProductListOfCategoryScreen'>;
+type NavigationProp = StackNavigationProp<StackParamList, 'ProductListOfCategory'>;
 
 /* type Props = {
     navigation: NavigationProp;
@@ -26,7 +26,7 @@ const CategoryItem = ({ category }: { category: Category }) => {
 
     function handleCategorySelection() {
         dispatch(setCategorySelected(category));
-        navigation.navigate('ProductListOfCategoryScreen');
+        navigation.navigate('ProductListOfCategory');
     }
 
 

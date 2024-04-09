@@ -34,14 +34,14 @@ const OrdersScreen = () => {
 
     return (
         <View style={styles.screenContainer}>
-            <Text style={styles.titleText}>Orders Screen</Text>
+            <Text style={styles.titleText}>Your Orders</Text>
             {
                 orderStore.length > 0 ? (
                     <>
                         <OrderList orders={orderStore} />
                         <Text style={styles.totalText}>Total Price: ${totalOrders}</Text>
-                        <Pressable onPress={confirmCart}>
-                            <Text style={styles.buttonText}>Empty Cart</Text>
+                        <Pressable >
+                            <Text style={styles.buttonText}>Empty Orders</Text>
                         </Pressable>
                     </>
                 ) :

@@ -11,7 +11,9 @@ const CartItem = ({ item }: { item: CartItemType }) => {
             <Text style={styles.titleText}>{item.title}</Text>
             <View style={styles.leftContainer} >
                 {/* <Text>{item.brand}</Text> */}
+                <Text style={styles.label} >Count products:</Text>
                 <Text style={styles.quantityText}>x{item.quantity.toString()}</Text>
+                <Text style={styles.label} >Total:</Text>
                 <Text style={styles.priceText}>${item.price.toString()}</Text>
             </View>
         </View >

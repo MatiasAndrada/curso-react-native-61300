@@ -4,6 +4,8 @@ import { colors } from "../../styles";
 const styles = StyleSheet.create({
     container: {
         padding: 10,
+        backgroundColor: colors.background,
+        height: "100%",
         gap: 15,
         alignItems: "center",
         justifyContent: "flex-start",
@@ -21,7 +23,6 @@ const styles = StyleSheet.create({
         padding: 8,
     },
     text: {
-        fontFamily: "InterRegular",
         fontSize: 18,
         color: "white",
     },

@@ -1,8 +1,6 @@
 import { FlatList } from "react-native";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CategoryItem from "./CategoryItem";
-import type { Category } from "../../types";
-import { getCategories } from "../../data/categories";
 import { useGetCategoriesQuery } from "../../services/shopService";
 
 const CategoryList = () => {

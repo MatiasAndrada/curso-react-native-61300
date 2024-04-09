@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
         margin: "auto",
         marginVertical: 8,
         padding: 8,
-        width: "90%",
+        width: "100%",
         flex: 1,
         flexDirection: "row",
         alignItems: "center",
@@ -21,20 +21,18 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     titleText: {
-        flex: 3,
         marginTop: 8,
         fontSize: 22,
         color: colors.textPrimary,
     },
+    label: {
+        fontSize: 14,
+        color: colors.textSecondary
+    },
     quantityText: {
-        flex: 1,
-        marginTop: 10,
         color: colors.textPrimary
     },
     priceText: {
-        flex: 1,
-
-        marginTop: 10,
         color: colors.textPrimary
     },
 })

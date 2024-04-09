@@ -3,19 +3,19 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 
 //Screens
 import StoreStack from "./StoreStack";
-import CartScreen from "../screens/Cart";
-import OrdersScreen from "../screens/Orders";
+import OrdersStack from "./OrdersStack"
 import MyProfileStack from "./MyProfileStack";
 
 //Styles
 import { colors } from "../styles/colors";
+import CartStack from "./CartStack";
 
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
     return (
         <Tab.Navigator
-            initialRouteName="Store"
+            initialRouteName="SelectCategory"
             screenOptions={{
                 headerShown: false,
                 tabBarActiveTintColor: colors.active,
@@ -34,7 +34,7 @@ function MyTabs() {
 
             <Tab.Screen
                 name="Cart"
-                component={CartScreen}
+                component={CartStack}
                 options={{
                     tabBarLabel: "Cart",
                     tabBarIcon: ({ color, size }) => (
@@ -46,7 +46,7 @@ function MyTabs() {
                     ),
                 }}
             />
-            <Tab.Screen name="Orders" component={OrdersScreen}
+            <Tab.Screen name="Orders" component={OrdersStack}
                 options={
                     {
                         tabBarLabel: "Orders",
@@ -57,7 +57,7 @@ function MyTabs() {
                 }
             />
             <Tab.Screen
-                name="MyProfile"
+                name="Profile"
                 component={MyProfileStack}
                 options={{
                     tabBarLabel: "Profile",

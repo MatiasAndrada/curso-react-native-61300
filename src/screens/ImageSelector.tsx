@@ -21,6 +21,7 @@ const ImageSelector = ({ navigation }: Props) => {
   const [image, setImage] = useState("");
   const { localId } = useSelector((state: RootState) => state.authReducer.value);
   const [triggerSaveProfileImage, result] = usePostProfileImageMutation();
+  console.log(result)
   const dispatch = useDispatch();
 
   const verifyCameraPermissions = async () => {
