@@ -5,7 +5,6 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import StoreStack from "./StoreStack";
 import OrdersStack from "./OrdersStack"
 import MyProfileStack from "./MyProfileStack";
-
 //Styles
 import { colors } from "../styles/colors";
 import CartStack from "./CartStack";

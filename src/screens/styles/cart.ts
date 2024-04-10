@@ -19,6 +19,10 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: colors.textPrimary
     },
+    rowContainer: {
+        gap: 15,
+        flexDirection: "row"
+    },
     buttonText: {
         padding: 12,
         marginBottom: 16,
@@ -27,7 +31,6 @@ const styles = StyleSheet.create({
         backgroundColor: colors.lowlightBackground,
         borderRadius: borderRadius.md
     },
-
     isEmptyText: {
         marginTop: 10,
         color: colors.textSecondary

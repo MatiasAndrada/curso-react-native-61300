@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, Pressable } from 'react-native';
-/* import { getProducts } from '../data/products'; */
 //Store 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { emptyCart } from '../features/shop/cartSlice';
 //Components
 import CartList from '../components/cart/CartList';
 //Styles 
@@ -15,6 +15,7 @@ import { usePostOrderMutation } from '../services/shopService';
 import uuid from 'react-native-uuid';
 
 export default function CartScreen() {
+    const dispatch = useDispatch();
     const userId = useSelector((state: RootState) => state.authReducer.value.localId)
     const { items, total } = useSelector((state: RootState) => state.cartReducer.value);
     const [triggerPost, result] = usePostOrderMutation();
@@ -32,6 +33,10 @@ export default function CartScreen() {
         });
     }
 
+    function clearCartHandler() {
+        dispatch(emptyCart())
+    }
+
     return (
         <View style={styles.screenContainer}>
             <Text style={styles.titleText}>Cart Screen</Text>
@@ -39,12 +44,14 @@ export default function CartScreen() {
                 <>
                     <Text style={styles.totalText}>Total: ${total.toString()}</Text>
                     <CartList cartItems={items} />
-                    <Pressable onPress={confirmCart}>
-                        <Text style={styles.buttonText}>Generate Order</Text>
-                    </Pressable>
-                    <Pressable onPress={confirmCart}>
-                        <Text style={styles.buttonText}>Empty Cart</Text>
-                    </Pressable>
+                    <View style={styles.rowContainer}>
+                        <Pressable onPress={clearCartHandler}>
+                            <Text style={styles.buttonText}>Empty Cart</Text>
+                        </Pressable>
+                        <Pressable onPress={confirmCart}>
+                            <Text style={styles.buttonText}>Generate Order</Text>
+                        </Pressable>
+                    </View>
                 </>
             ) : (
                 <Text style={styles.isEmptyText}>No hay productos agregados</Text>

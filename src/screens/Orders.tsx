@@ -40,9 +40,13 @@ const OrdersScreen = () => {
                     <>
                         <OrderList orders={orderStore} />
                         <Text style={styles.totalText}>Total Price: ${totalOrders}</Text>
-                        <Pressable >
-                            <Text style={styles.buttonText}>Empty Orders</Text>
-                        </Pressable>
+                        {
+                            /**
+                            <Pressable >
+                                <Text style={styles.buttonText}>Empty Orders</Text>
+                         </Pressable>
+                             */
+                        }
                     </>
                 ) :
                     (

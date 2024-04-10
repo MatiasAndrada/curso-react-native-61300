@@ -4,10 +4,12 @@ import Header from "../components/ui/Header"
 //Screens 
 import StoreScreen from "../screens/Store";
 import ProductListOfCategoryScreen from "../screens/ProductListOfCategory";
+import ProductDetail from "../components/products/ProductDetail";
 
 export type StackParamList = {
     SelectCategory: undefined;
     ProductListOfCategory: undefined;
+    ProductDetail: undefined;
 };
 export default function StoreStack() {
     const Stack = createNativeStackNavigator<StackParamList>()
@@ -19,6 +21,7 @@ export default function StoreStack() {
             <Stack.Screen name="SelectCategory" component={StoreScreen}
             />
             <Stack.Screen name="ProductListOfCategory" component={ProductListOfCategoryScreen} />
+            <Stack.Screen name="ProductDetail" component={ProductDetail} />
         </Stack.Navigator >
     )
 }

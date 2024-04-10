@@ -25,7 +25,7 @@ const MainNavigator = () => {
         (async () => {
             try {
                 const session = await fetchSession();
-                console.log(session)
+                console.log("session", session)
                 if (session) {
                     const user = session;
                     dispatch(setUser(user));
